@@ -1,7 +1,7 @@
-package com.example;
+package com.example.parameterizedtest;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -24,7 +24,7 @@ class ParameterizedTestSample {
 
 	@ParameterizedTest
 	@ValueSource(strings = { "Java", "java", "JAVA" })
-	void upperCace(String s) {
+	void upperCase(String s) {
 		assertEquals("JAVA", s.toUpperCase());
 	}
 
