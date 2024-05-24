@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.fail;
 import com.example.MathUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
-class MathUtilTestParameterizedTestCsvSource {
+class MathUtilParameterizedTestCsvFileSourceTest {
 
 	@Test
 	void testPower1() {
@@ -24,27 +24,7 @@ class MathUtilTestParameterizedTestCsvSource {
 	
 	// パラメタライズドテストサンプル TC3〜TC20
 	@ParameterizedTest
-	@CsvSource({
-		// num1の値, num2の値, 結果
-		"0, 0, 1", //TC3
-		"0, 1, 0", //TC4
-		"0, 2, 0", //TC5
-		"1,-2, 1", //TC6
-		"1,-1, 1", //TC7
-		"1, 0, 1", //TC8
-		"1, 1, 1", //TC9
-		"1, 2, 1", //TC10
-		"-1,-2, 1", //TC11
-		"-1,-1,-1", //TC12
-		"-1, 0, 1", //TC13
-		"-1, 1,-1", //TC14
-		"-1, 2, 1", //TC15
-		"2,-2, 0.25", //TC16
-		"2,-1, 0.5", //TC17
-		"2, 0, 1", //TC18
-		"2, 1, 2", //TC19
-		"2, 2, 4", //TC20
-	})
+	@CsvFileSource(resources = "MathUtilParameterizedTestCsvFileSourceTest.csv")
 	void num1のnum2乗を求めるメソッドのテスト(int num1, int num2, double expectedResult) {
 		double actualAnswer = MathUtil.power(num1, num2);
 		assertEquals(expectedResult, actualAnswer, "TC1:期待値と実際の結果が異なります");
