@@ -24,7 +24,7 @@ class MathUtilParameterizedTestCsvFileSourceTest {
 	
 	// パラメタライズドテストサンプル TC3〜TC20
 	@ParameterizedTest
-	@CsvFileSource(resources = "MathUtilParameterizedTestCsvFileSourceTest.csv")
+	@CsvFileSource(resources = "/MathUtilParameterizedTestCsvFileSourceTest.csv")
 	void num1のnum2乗を求めるメソッドのテスト(int num1, int num2, double expectedResult) {
 		double actualAnswer = MathUtil.power(num1, num2);
 		assertEquals(expectedResult, actualAnswer, "TC1:期待値と実際の結果が異なります");
