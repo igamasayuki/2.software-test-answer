@@ -1,0 +1,17 @@
+name: Build & Test CI # ワークフロー名
+
+on: push # ワークフローを開始するイベント名
+
+jobs: # ワークフローで実行されるジョブ群
+  build-and-test: # ジョブID
+    runs-on: ubuntu-latest # ジョブが実行されるマシンの種類
+    steps: # ジョブで実行されるステップ群
+      - name: Checkout
+        uses: actions/checkout@v3 # ソースコード取得(チェックアウト)
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3 # Javaの実行環境を作成
+        with:
+          java-version: '21'
+          distribution: 'temurin' # JDKのディストリビューション(配布元)
+      - name: Build with Test # ビルドとテスト
+        run: ./gradlew build # コマンドラインにてテストとビルドを実行
