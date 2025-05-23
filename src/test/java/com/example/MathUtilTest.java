@@ -179,14 +179,10 @@ class MathUtilTest {
         assertEquals(4.0, actualAnswer, "TC20:期待値と実際の結果が異なります");
     }
 
-    /**
-     * 例外が発生するか検証
-     */
     @Test
     void testPower21() {
-        IllegalArgumentException expectedException = assertThrows(IllegalArgumentException.class,
-                () -> MathUtil.power(100, 0));
-        assertEquals("100以上の値は不正です", expectedException.getMessage(), "TC21:期待値と実際の結果が異なります");
+        double actualAnswer = MathUtil.power(99, 1);
+        assertEquals(99.0, actualAnswer, "TC21:期待値と実際の結果が異なります");
     }
 
     /**
@@ -195,16 +191,32 @@ class MathUtilTest {
     @Test
     void testPower22() {
         IllegalArgumentException expectedException = assertThrows(IllegalArgumentException.class,
-                () -> MathUtil.power(0, 100));
+                () -> MathUtil.power(100, 0),"TC22:例外が発生しませんでした");
         assertEquals("100以上の値は不正です", expectedException.getMessage(), "TC22:期待値と実際の結果が異なります");
+    }
+
+    @Test
+    void testPower23() {
+        double actualAnswer = MathUtil.power(1, 99);
+        assertEquals(1.0, actualAnswer, "TC23:期待値と実際の結果が異なります");
+    }
+
+    /**
+     * 例外が発生するか検証
+     */
+    @Test
+    void testPower24() {
+        IllegalArgumentException expectedException = assertThrows(IllegalArgumentException.class,
+                () -> MathUtil.power(0, 100),"TC24:例外が発生しませんでした");
+        assertEquals("100以上の値は不正です", expectedException.getMessage(), "TC24:期待値と実際の結果が異なります");
     }
 
     // 以下でも大丈夫ですが少し古い書き方です。
 //	@Test
-//	void testPower21() {
+//	void testPower22() {
 //		try {
 //			MathUtil.power(100, 0);
-//			fail("TC21:例外が発生しなければなりません");
+//			fail("TC22:例外が発生しなければなりません");
 //		} catch (IllegalArgumentException e) {
 //			assertEquals("100以上の値は不正です", e.getMessage(), "TC21:期待値と実際の結果が異なります");
 //		}
@@ -213,10 +225,10 @@ class MathUtilTest {
 //	 * 例外が発生するか検証
 //	 */
 //	@Test
-//	public void testPower22() {
+//	public void testPower24() {
 //		try {
 //			MathUtil.power(0, 1000);
-//			fail("TC22:例外が発生しなければなりません");
+//			fail("TC24:例外が発生しなければなりません");
 //		} catch (IllegalArgumentException e) {
 //			assertEquals("100以上の値は不正です", e.getMessage(), "TC22:期待値と実際の結果が異なります");
 //		}
