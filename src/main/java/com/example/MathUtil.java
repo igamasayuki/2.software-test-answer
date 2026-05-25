@@ -16,7 +16,7 @@ public class MathUtil {
 	 * @param num2
 	 *            指数
 	 * @return num1のnum2乗
-	 * @throws IlligalArgmentException
+	 * @throws IllegalArgumentException
 	 *             num1またはnum2が100以上の時に発生する (この時例外オブジェクトには「100以上の値は不正です」と含める)
 	 */
 	public static double power(int num1, int num2) {
